@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import CompletePage from "../../components/CompletePage";
 import ProtectedCheckoutPage from "../../components/ProtectedCheckoutPage";
