@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 import Socials from "../Socials";
 import BurgerMenu from "./BurgerMenu";
@@ -12,15 +12,15 @@ export interface HeaderProps {
 }
 
 export default function Header({ socials, isMobile }: HeaderProps) {
-  const [activeLink, setActiveLink] = React.useState(0);
-  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
+  const [activeLink, setActiveLink] = useState(0);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const closeMenu = () => {
     setIsOpenMenu(false);
     document.body.classList.remove("_lock");
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isMobile) {
       closeMenu();
     }

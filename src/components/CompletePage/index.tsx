@@ -1,4 +1,3 @@
-import React from "react";
 import CheckedImage from "../../assets/checked.png";
 
 export default function CompletePage() {

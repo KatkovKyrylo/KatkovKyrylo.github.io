@@ -1,14 +1,14 @@
-import React from "react";
+import { useState, FormEvent } from "react";
 import { useElements, useStripe, PaymentElement } from "@stripe/react-stripe-js";
 import SubmitButton from "../SubmitButton";
 
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  const [message, setMessage] = React.useState<string | null>(null);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!stripe || !elements) {

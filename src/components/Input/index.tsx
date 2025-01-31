@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import React from "react";
+import { HTMLAttributes, ChangeEvent } from "react";
 
-interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface InputProps extends HTMLAttributes<HTMLInputElement> {
   value?: string | number;
   type?: string;
   placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Input({ className, ...props }: InputProps) {

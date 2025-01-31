@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import React from "react";
 
 interface SubmitButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

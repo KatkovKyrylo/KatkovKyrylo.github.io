@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, ChangeEvent, FormEvent, Dispatch } from "react";
 import Input from "../../components/Input";
 import SubmitButton from "../SubmitButton";
 import axios from "axios";
@@ -7,20 +7,20 @@ import { useNavigate } from "react-router-dom";
 import { dollarsToCents } from "../../utils/dollarsToCents";
 
 interface PaymentDetailsFormProps {
-  setClientSecret: React.Dispatch<React.SetStateAction<string | null>>;
+  setClientSecret: Dispatch<React.SetStateAction<string | null>>;
 }
 
 export default function PaymentDetailsForm({ setClientSecret }: PaymentDetailsFormProps) {
-  const [amount, setAmount] = React.useState("");
+  const [amount, setAmount] = useState("");
   const navigate = useNavigate();
-  const [amountErrorMessage, setAmountErrorMessage] = React.useState<string | null>(null);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [amountErrorMessage, setAmountErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeAmount = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     if (!amount) {
