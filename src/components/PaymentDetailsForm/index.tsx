@@ -46,9 +46,9 @@ export default function PaymentDetailsForm({ setClientSecret }: PaymentDetailsFo
 
   return (
     <form className="" onSubmit={handleSubmit}>
-      <h1 className="text-center font-bold text-3xl mb-6">Payment details</h1>
+      <h1 className="text-left font-bold text-3xl mb-6">Payment details</h1>
       <label>
-        <span className="">Amount ($):</span>
+        <div className="mb-2">Amount ($):</div>
         <Input type="number" value={amount} placeholder="Input amount" onChange={onChangeAmount} />
         {amountErrorMessage && <p className="text-red-500">{amountErrorMessage}</p>}
       </label>

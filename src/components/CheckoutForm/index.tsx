@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { useElements, useStripe, PaymentElement } from "@stripe/react-stripe-js";
+import { useElements, useStripe, PaymentElement, ExpressCheckoutElement } from "@stripe/react-stripe-js";
 import SubmitButton from "../SubmitButton";
 
 function CheckoutForm() {
@@ -8,8 +8,8 @@ function CheckoutForm() {
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
 
     if (!stripe || !elements) {
       return;
@@ -36,7 +36,15 @@ function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <PaymentElement id="checkout-form-payment-element" />
+      <ExpressCheckoutElement onConfirm={() => handleSubmit()} />
+      <PaymentElement options={{
+          layout: {
+            type: "tabs",
+            defaultCollapsed: false,
+          },
+          paymentMethodOrder: ["google_pay", "apple_pay", "card"],
+        }}
+        id="checkout-form-payment-element" />
       <SubmitButton className="mt-6" disabled={isLoading || !stripe || !elements} id="submit">
         Pay now
       </SubmitButton>

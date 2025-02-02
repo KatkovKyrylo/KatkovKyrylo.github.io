@@ -11,7 +11,7 @@ export default function PreviousProjects({ projects }: PreviousProjectsProps) {
   return (
     <div id="previous-projects">
       <Title variant="h2">Previous projects</Title>
-      <div className="flex flex-col gap-16 max-w-3xl">
+      <div className="flex flex-col gap-16">
         {projects.map(({ title, duration, href, position, previewSrc, results, technologies }) => (
           <div key={`previous-projects-${title}`} className="flex flex-col items-start gap-3">
             <Title variant="h3" className="text-2xl text-white">
