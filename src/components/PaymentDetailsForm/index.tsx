@@ -1,9 +1,9 @@
 import { useState, ChangeEvent, FormEvent, Dispatch } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import SubmitButton from "../SubmitButton";
-import axios from "axios";
 import { CREATE_PAYMENT } from "../../endpoints";
-import { useNavigate } from "react-router-dom";
 import { dollarsToCents } from "../../utils/dollarsToCents";
 
 interface PaymentDetailsFormProps {
@@ -32,7 +32,7 @@ export default function PaymentDetailsForm({ setClientSecret }: PaymentDetailsFo
     if (amountInCents) {
       setIsLoading(true);
       axios
-        .post(CREATE_PAYMENT, { amount: amountInCents, country: "test country" })
+        .post(CREATE_PAYMENT, { currency: "usd", amount: amountInCents, country: "test country" })
         .then(({ data }) => {
           setClientSecret(data.clientSecret);
           navigate("/checkout");

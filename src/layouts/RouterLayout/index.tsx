@@ -8,15 +8,25 @@ import Layout from "../Layout/layout.component";
 import DeveloperInfoPage from "../../pages/DeveloperInfoPage";
 import DevInfoProvider from "../../contexts/dev-info.provider";
 import DeveloperPayPage from "../../pages/Pay";
+import axios from "axios";
 
 export default function RouterLayout() {
   const [stripe, setStripe] = useState<Stripe | null>(null);
   const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   useEffect(() => {
-    loadStripe(import.meta.env.VITE_STRIPE_PUB_KEY as string)
-      .then((data: any) => setStripe(data))
-      .catch((err: any) => console.log("Error loading Stripe:", err));
+    axios.get(import.meta.env.VITE_BACKEND_BASE_URL + '/intentConfig')
+      .then(result => {
+        if (!result || !result.data) {
+          console.error('Error initializating Stripe module... NO PUB KEY provided.');
+          return;
+        }
+
+        const { data: { publishableKey }} = result;
+        loadStripe(publishableKey)
+          .then((data: any) => setStripe(data))
+          .catch((err: any) => console.log("Error loading Stripe:", err));
+      });
   }, []);
 
   return (

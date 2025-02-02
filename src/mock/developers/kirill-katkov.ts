@@ -14,7 +14,7 @@ export const kirillKatkovDevInfo: TDeveloperInfo = {
     upwork: "https://www.upwork.com/freelancers/reactkyrylonext",
   },
   description:
-    "I'm a Front-End Developer with 4+ years of experience in the industry. With a strong skill set in JavaScript, TypeScript, React, Redux, Next.js and a range of other technologies, I'm well-equipped to tackle complex front-end development challenges. My commitment to quality is evident in my project outcomes, making me a valuable asset to any development team.",
+    "I'm a Front-End Developer with 4+ years of experience in the industry. With a strong skill set in JavaScript, TypeScript, React, Redux, Next.js and a range of other technologies, I'm well-equipped to tackle complex front-end development challenges.",
   education: [
     {
       duration: "09/2018 – 06/2020",

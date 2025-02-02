@@ -15,16 +15,16 @@ export interface DeveloperInfoPageProps {
 
 export default function Layout() {
   const { devInfo, setDevInfo } = useDevInfo();
-  const username = 'kirill-katkov';
   const isMobile = useIsMobile();
   const isPaymentPage = useIsPage(["/pay", "/checkout", "/complete"]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const username = 'kirill-katkov';
     const devInfo = developersInfo.find((developer) => developer.username === username);
     setDevInfo(devInfo);
     setIsLoading(false);
-  }, [username]);
+  }, []);
 
   if (isLoading) return <div>Loading...</div>;
   if (!devInfo) return <div>Not found</div>;
