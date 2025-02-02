@@ -1,7 +1,6 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export function useIsPage(pageOrPages: string | string[]) {
-  // const { username } = useParams();
   const location = useLocation();
 
   const pathWithUsername = ``;
