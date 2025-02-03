@@ -65,7 +65,7 @@ export const kirillKatkovDevInfo: TDeveloperInfo = {
       technologies: "React, CSS-M, Azure Storage, Azure AD B2C",
       results:
         "A web platform that adheres to data protection protocols and fosters an environment where data protection is organically woven into the fabric of the company. With Azure Active Directory B2C, I orchestrated a seamless authentication and user management system, while Azure Storage empowered users to effortlessly upload and download files from their designated containers.",
-      previewSrc: ProjectSrc1,
+      previewSrc: ProjectSrc2,
     },
     {
       title: "ProprHome",
@@ -77,7 +77,7 @@ export const kirillKatkovDevInfo: TDeveloperInfo = {
       technologies: "Next.js, React.js, GraphQL, Typescript, Styled-components, SCSS, Redux-toolkit",
       results:
         "The result of this endeavor is an app that is a transformative tool that sets a new standard in the real estate tech landscape, making ProprHome a pioneer in reshaping the future of client-agent dynamics.",
-      previewSrc: ProjectSrc2,
+      previewSrc: ProjectSrc1,
     },
   ],
   skillsAndExpertise: [
