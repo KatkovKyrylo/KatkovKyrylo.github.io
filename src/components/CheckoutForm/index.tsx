@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { useElements, useStripe, PaymentElement, ExpressCheckoutElement } from "@stripe/react-stripe-js";
+import { useElements, useStripe, PaymentElement } from "@stripe/react-stripe-js";
 import SubmitButton from "../SubmitButton";
 
 function CheckoutForm() {
@@ -36,13 +36,11 @@ function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <ExpressCheckoutElement onConfirm={() => handleSubmit()} />
       <PaymentElement options={{
           layout: {
             type: "tabs",
             defaultCollapsed: false,
           },
-          paymentMethodOrder: ["google_pay", "apple_pay", "card"],
         }}
         id="checkout-form-payment-element" />
       <SubmitButton className="mt-6" disabled={isLoading || !stripe || !elements} id="submit">

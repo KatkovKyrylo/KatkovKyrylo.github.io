@@ -34,7 +34,7 @@ export default function Layout() {
   return (
     <div>
       <Header isMobile={isMobile} socials={devInfo.socials} />
-      <div className="mt-16 px-4 pb-10 flex container mx-auto flex-col lg:flex-row lg:px-8 lg:gap-20 xl:gap-32 2xl:gap-40">
+      <div className="mt-16 px-4 pb-10 flex container mx-auto flex-col lg:flex-row lg:px-8 lg:gap-16 xl:gap-20 2xl:gap-20">
         <div className="basis-auto shrink-0 lg:basis-80 xl:basis-[400px]">
           <div className="element-with-custom-scroll overflow-auto static w-full lg:h-screen lg:fixed lg:w-80 xl:w-[400px]">
             <Hero

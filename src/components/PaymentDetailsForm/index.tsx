@@ -7,10 +7,10 @@ import { CREATE_PAYMENT } from "../../endpoints";
 import { dollarsToCents } from "../../utils/dollarsToCents";
 
 interface PaymentDetailsFormProps {
-  setClientSecret: Dispatch<React.SetStateAction<string | null>>;
+  setSecretPayload: Dispatch<React.SetStateAction<object | null>>;
 }
 
-export default function PaymentDetailsForm({ setClientSecret }: PaymentDetailsFormProps) {
+export default function PaymentDetailsForm({ setSecretPayload }: PaymentDetailsFormProps) {
   const [amount, setAmount] = useState("");
   const navigate = useNavigate();
   const [amountErrorMessage, setAmountErrorMessage] = useState<string | null>(null);
@@ -27,15 +27,21 @@ export default function PaymentDetailsForm({ setClientSecret }: PaymentDetailsFo
       return setAmountErrorMessage("Amount is required");
     }
 
-    const amountInCents = dollarsToCents(Number(amount));
+    const currency = 'usd';
+    const amountNumber = Number(amount);
+    const amountInCents = dollarsToCents(amountNumber);
 
     if (amountInCents) {
       setIsLoading(true);
       axios
-        .post(CREATE_PAYMENT, { currency: "usd", amount: amountInCents, country: "test country" })
+        .post(CREATE_PAYMENT, { currency, amount: amountInCents })
         .then(({ data }) => {
-          setClientSecret(data.clientSecret);
-          navigate("/checkout");
+          setSecretPayload({
+            currency,
+            amount: amountInCents,
+            secret: data.clientSecret,
+          });
+          navigate(`/checkout?amount=${amountNumber}&currency=usd`);
         })
         .catch((err) => console.error("Error fetching clientSecret:", err))
         .finally(() => {
