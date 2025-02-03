@@ -20,7 +20,7 @@ export default function Layout() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const username = 'kirill-katkov';
+    const username = 'dmitriy-domnich';
     const devInfo = developersInfo.find((developer) => developer.username === username);
     setDevInfo(devInfo);
     setIsLoading(false);

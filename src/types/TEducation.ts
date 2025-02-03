@@ -1,5 +1,5 @@
 export interface TEducationItem {
-  duration: string;
+  duration?: string;
   list: string[];
 }
 

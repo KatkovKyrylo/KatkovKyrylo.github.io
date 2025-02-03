@@ -24,7 +24,7 @@ export default function Hero({ name, avatar, socials, position, description }: H
         <Title variant="h1" className="text-left">{name}</Title>
         <p className="text-xl text-left mb-8">{position}</p>
         <img
-          className="mt-3 w-full rounded-md mx-0 object-cover lg:mx-auto"
+          className="mt-3 w-full max-h-72 rounded-md mx-0 object-cover lg:mx-auto"
           src={avatar}
           alt="developer avatar"
         />
